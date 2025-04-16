@@ -8,13 +8,13 @@
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_qn1rc")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="background" type="ColorRect" parent="."]
 offset_right = 1153.0
 offset_bottom = 648.0
 color = Color(1, 0.733333, 0.533333, 1)
 
 [node name="Player" type="RigidBody2D" parent="."]
-position = Vector2(230, 299)
+position = Vector2(230, 300)
 scale = Vector2(0.25, 0.25)
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="Player"]
