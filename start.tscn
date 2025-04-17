@@ -5,9 +5,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qn1rc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_id3m5"]
-extents = Vector2(50, 1024)
-
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_qn1rc")
 
@@ -31,7 +28,5 @@ texture = ExtResource("1_ots34")
 position = Vector2(0, 550)
 
 [node name="GroundRect" type="ColorRect" parent="Ground"]
-size = Vector2(50, 1024)
-
-[node name="GroundCollider" type="CollisionShape2D" parent="Ground"]
-shape = SubResource("RectangleShape2D_id3m5")
+offset_right = 1024.0
+offset_bottom = 50.0
