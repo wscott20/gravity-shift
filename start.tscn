@@ -22,6 +22,7 @@ position = Vector2(0, 550)
 [node name="GroundRect" type="ColorRect" parent="Ground"]
 offset_right = 1024.0
 offset_bottom = 50.0
+color = Color(0, 0, 0, 1)
 
 [node name="GroundCollider" type="CollisionShape2D" parent="Ground"]
 position = Vector2(512, 25)
@@ -31,9 +32,9 @@ shape = SubResource("RectangleShape2D_gor3p")
 position = Vector2(512, 200)
 
 [node name="PlayerSprite" type="Sprite2D" parent="Player"]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_ots34")
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="Player"]
-scale = Vector2(1.25, 1.25)
+scale = Vector2(2.5, 2.5)
 shape = SubResource("RectangleShape2D_qn1rc")
