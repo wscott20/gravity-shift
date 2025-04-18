@@ -30,17 +30,17 @@ color = Color(0, 0, 0, 1)
 position = Vector2(512, 25)
 shape = SubResource("RectangleShape2D_gor3p")
 
-[node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(0, 550)
+[node name="Ceiling" type="StaticBody2D" parent="."]
+position = Vector2(0, 0)
 
-[node name="GroundRect" type="ColorRect" parent="Ground"]
+[node name="CeilingRect" type="ColorRect" parent="Ground"]
 offset_right = 1024.0
 offset_bottom = 50.0
 color = Color(0, 0, 0, 1)
 
-[node name="GroundCollider" type="CollisionShape2D" parent="Ground"]
+[node name="CeilingCollider" type="CollisionShape2D" parent="Ground"]
 position = Vector2(512, 25)
-shape = SubResource("RectangleShape2D_gor3p")
+shape = SubResource("RectangleShape2D_d1xn8")
 
 [node name="Player" type="RigidBody2D" parent="."]
 position = Vector2(512, 200)
