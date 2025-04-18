@@ -10,12 +10,12 @@ public partial class Game : Node2D {
 	public override void _Process(double delta) {
 		float dt = (float)delta;
 		if (Input.IsPhysicalKeyPressed(Key.Up))
-			player.LinearVelocity = new(player.LinearVelocity.X,-1);
+			player.LinearVelocity = new(player.LinearVelocity.X,-speed);
 		if (Input.IsPhysicalKeyPressed(Key.Down))
-			player.LinearVelocity = new(player.LinearVelocity.X,1);
+			player.LinearVelocity = new(player.LinearVelocity.X,speed);
 		if (Input.IsPhysicalKeyPressed(Key.Right))
-			player.LinearVelocity = new(1,player.LinearVelocity.Y);
+			player.LinearVelocity = new(speed,player.LinearVelocity.Y);
 		if (Input.IsPhysicalKeyPressed(Key.Left))
-			player.LinearVelocity = new(-1,player.LinearVelocity.Y);
+			player.LinearVelocity = new(-speed,player.LinearVelocity.Y);
 	}
 }
