@@ -1,12 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctx8b3l8wf6xp"]
+[gd_scene load_steps=5 format=3 uid="uid://ctx8b3l8wf6xp"]
 
 [ext_resource type="Texture2D" uid="uid://cx6s1wl6pwau8" path="res://sprite.png" id="1_ots34"]
 [ext_resource type="Script" uid="uid://cqcrpry00d1lb" path="res://Game.cs" id="1_qn1rc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn1rc"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gor3p"]
 size = Vector2(1024, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn1rc"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_qn1rc")
@@ -16,17 +16,6 @@ offset_right = 1024.0
 offset_bottom = 600.0
 color = Color(1, 0.733333, 0.533333, 1)
 
-[node name="Player" type="RigidBody2D" parent="."]
-position = Vector2(230, 300)
-scale = Vector2(0.25, 0.25)
-
-[node name="PlayerCollider" type="CollisionShape2D" parent="Player"]
-scale = Vector2(5, 5)
-shape = SubResource("RectangleShape2D_qn1rc")
-
-[node name="PlayerSprite" type="Sprite2D" parent="Player"]
-texture = ExtResource("1_ots34")
-
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(0, 550)
 
@@ -35,4 +24,16 @@ offset_right = 1024.0
 offset_bottom = 50.0
 
 [node name="GroundCollider" type="CollisionShape2D" parent="Ground"]
+position = Vector2(512, 25)
 shape = SubResource("RectangleShape2D_gor3p")
+
+[node name="Player" type="RigidBody2D" parent="."]
+position = Vector2(512, 200)
+
+[node name="PlayerSprite" type="Sprite2D" parent="Player"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_ots34")
+
+[node name="PlayerCollider" type="CollisionShape2D" parent="Player"]
+scale = Vector2(1.25, 1.25)
+shape = SubResource("RectangleShape2D_qn1rc")
