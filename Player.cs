@@ -4,11 +4,12 @@ using System;
 public partial class Player : CharacterBody2D
 {
 	Vector2 gravDir = Vector2.Down;
+	Sprite2D sprite;
 	bool isGrounded = false;
 	[Export] public int speed = 200;
-	[Export] public int jumpForce = 400;
-	// public override void _Ready() {
-	// }
+	public override void _Ready() {
+		sprite = GetNode<Sprite2D>("PlayerSprite");
+	}
 	bool GetKey(Key key) => Input.IsPhysicalKeyPressed(key);
 	public override void _PhysicsProcess(double delta) {
 		float dt = (float)delta;
@@ -16,11 +17,17 @@ public partial class Player : CharacterBody2D
 		for (int i = 0; i < GetSlideCollisionCount(); i++) {
 			var collider = GetSlideCollision(i);
 			Vector2 norm = collider.GetNormal();
-			if (-norm == gravDir) {
-				isGrounded = true;
-				break;
-			}
+			gravDir = -norm;
+			isGrounded = true;
 		}
+		if (gravDir == Vector2.Up)
+			sprite.Rotation = Mathf.Pi;
+		if (gravDir == Vector2.Down)
+			sprite.Rotation = 0;
+		if (gravDir == Vector2.Left)
+			sprite.Rotation = Mathf.Pi*.5f;
+		if (gravDir == Vector2.Right)
+			sprite.Rotation = Mathf.Pi*1.5f;
 		Vector2 vel = Velocity;
 		if (gravDir == Vector2.Up || gravDir == Vector2.Down) {
 			if (isGrounded)
@@ -41,10 +48,10 @@ public partial class Player : CharacterBody2D
 				vel.Y += speed;
 		}
 		if (GetKey(Key.Space) && isGrounded) {
-			vel -= gravDir * jumpForce * dt;
+			vel -= gravDir * 400;// * jumpForce * dt;
 			isGrounded = false;
 		}
-		vel += gravDir * 100 * dt;
+		vel += gravDir * 20;
 		Velocity = vel;
 		MoveAndSlide();
 	}
