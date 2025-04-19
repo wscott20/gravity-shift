@@ -4,18 +4,31 @@ using System;
 public partial class Player : RigidBody2D
 {
 	[Export] public int speed = 200;
-	//public override void _Ready() {
-	//	
-	//}
+	bool isGrounded = false;
+	public override void _Ready() {
+		ContactMonitor = true;
+		MaxContactsReported = 10;
+	}
+	bool GetKey(Key key) => Input.IsPhysicalKeyPressed(key);
 	public override void _Process(double delta) {
 		float dt = (float)delta;
-		if (Input.IsPhysicalKeyPressed(Key.Up))
+		// if (GetKey(Key.P))
+		// 	Console.WriteLine(MaxContactsReported);
+		if (GetKey(Key.Up))
 			LinearVelocity = new(LinearVelocity.X,-speed);
-		if (Input.IsPhysicalKeyPressed(Key.Down))
+		if (GetKey(Key.Down))
 			LinearVelocity = new(LinearVelocity.X,speed);
-		if (Input.IsPhysicalKeyPressed(Key.Right))
+		if (GetKey(Key.Right))
 			LinearVelocity = new(speed,LinearVelocity.Y);
-		if (Input.IsPhysicalKeyPressed(Key.Left))
+		if (GetKey(Key.Left))
 			LinearVelocity = new(-speed,LinearVelocity.Y);
+	}
+	public override void _PhysicsProcess(double delta) {
+		base._PhysicsProcess(delta);
+		//set isGrounded false
+		foreach (var obj in GetCollidingBodies()) {
+			//get collision normal
+			//if normal on top set isGrounded to true
+		}
 	}
 }
