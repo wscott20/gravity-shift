@@ -9,6 +9,8 @@ public partial class Player : CharacterBody2D
 	[Export] public int speed = 200;
 	public override void _Ready() {
 		sprite = GetNode<Sprite2D>("PlayerSprite");
+		GD.Print(DisplayServer.ScreenGetSize(DisplayServer.GetPrimaryScreen()));
+		DisplayServer.WindowSetSize(new(1024,600));
 	}
 	bool GetKey(Key key) => Input.IsPhysicalKeyPressed(key);
 	public override void _PhysicsProcess(double delta) {
