@@ -53,23 +53,23 @@ position = Vector2(0, 0)
 
 [node name="LWRect" type="ColorRect" parent="LeftWall"]
 offset_right = 50.0
-offset_bottom = 1024.0
+offset_bottom = 600.0
 color = Color(0, 0, 0, 1)
 
 [node name="LWCollider" type="CollisionShape2D" parent="LeftWall"]
-position = Vector2(25, 512)
+position = Vector2(25, 300)
 shape = SubResource("RectangleShape2D_9lt4m")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
-position = Vector2(550, 0)
+position = Vector2(974, 0)
 
 [node name="RWRect" type="ColorRect" parent="RightWall"]
 offset_right = 50.0
-offset_bottom = 1024.0
+offset_bottom = 600.0
 color = Color(0, 0, 0, 1)
 
 [node name="RWCollider" type="CollisionShape2D" parent="RightWall"]
-position = Vector2(25, 512)
+position = Vector2(25, 300)
 shape = SubResource("RectangleShape2D_b0h2g")
 
 [node name="Player" type="RigidBody2D" parent="."]
