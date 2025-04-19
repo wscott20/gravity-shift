@@ -1,34 +1,36 @@
 using Godot;
 using System;
 
-public partial class Player : RigidBody2D
+public partial class Player : CharacterBody2D
 {
+	Vector2 gravDir = Vector2.Down;
 	[Export] public int speed = 200;
-	bool isGrounded = false;
-	public override void _Ready() {
-		ContactMonitor = true;
-		MaxContactsReported = 10;
-	}
+	// public override void _Ready() {
+	// }
 	bool GetKey(Key key) => Input.IsPhysicalKeyPressed(key);
-	public override void _Process(double delta) {
+    public override void _PhysicsProcess(double delta) {
 		float dt = (float)delta;
-		// if (GetKey(Key.P))
-		// 	Console.WriteLine(MaxContactsReported);
-		if (GetKey(Key.Up))
-			LinearVelocity = new(LinearVelocity.X,-speed);
-		if (GetKey(Key.Down))
-			LinearVelocity = new(LinearVelocity.X,speed);
-		if (GetKey(Key.Right))
-			LinearVelocity = new(speed,LinearVelocity.Y);
-		if (GetKey(Key.Left))
-			LinearVelocity = new(-speed,LinearVelocity.Y);
-	}
-	public override void _PhysicsProcess(double delta) {
-		base._PhysicsProcess(delta);
-		//set isGrounded false
-		foreach (var obj in GetCollidingBodies()) {
-			//get collision normal
-			//if normal on top set isGrounded to true
+		Vector2 vel = Velocity;
+		if (gravDir == Vector2.Up || gravDir == Vector2.Down) {
+			vel.X = 0;
+			if (GetKey(Key.Left))
+				vel.X -= speed;
+			if (GetKey(Key.Right))
+				vel.X += speed;
 		}
+		if (gravDir == Vector2.Up || gravDir == Vector2.Down) {
+			vel.Y = 0;
+			if (GetKey(Key.Up))
+				vel.Y -= speed;
+			if (GetKey(Key.Down))
+				vel.Y += speed;
+		}
+		vel += gravDir * 9.8f * dt;
+		for (int i = 0; i < GetSlideCollisionCount(); i++) {
+			var collider = GetSlideCollision(i);
+			Vector2 norm = collider.GetNormal();
+		}
+		Velocity = vel;
+		MoveAndSlide();
 	}
 }

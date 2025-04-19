@@ -70,7 +70,7 @@ color = Color(0, 0, 0, 1)
 position = Vector2(25, 300)
 shape = SubResource("RectangleShape2D_b0h2g")
 
-[node name="Player" type="RigidBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(512, 200)
 script = ExtResource("1_qn1rc")
 speed = 300
