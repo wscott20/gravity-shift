@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctx8b3l8wf6xp"]
+[gd_scene load_steps=8 format=3 uid="uid://ctx8b3l8wf6xp"]
 
 [ext_resource type="Texture2D" uid="uid://cx6s1wl6pwau8" path="res://sprite.png" id="1_ots34"]
 [ext_resource type="Script" uid="uid://cn737t8ghixim" path="res://Player.cs" id="1_qn1rc"]
@@ -37,7 +37,6 @@ position = Vector2(512, 25)
 shape = SubResource("RectangleShape2D_gor3p")
 
 [node name="Ceiling" type="StaticBody2D" parent="."]
-position = Vector2(0, 0)
 
 [node name="CeilingRect" type="ColorRect" parent="Ceiling"]
 offset_right = 1024.0
@@ -49,7 +48,6 @@ position = Vector2(512, 25)
 shape = SubResource("RectangleShape2D_d1xn8")
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
-position = Vector2(0, 0)
 
 [node name="LWRect" type="ColorRect" parent="LeftWall"]
 offset_right = 50.0
