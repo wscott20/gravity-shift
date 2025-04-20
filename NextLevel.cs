@@ -8,8 +8,8 @@ public partial class NextLevel : Area2D
 	}
 	void OnBodyEntered(Node node) {
 		if (node is Player) {
-			GD.Print("Next level");
-			//GetTree().ChangeSceneToFile("res://level2.tscn");
+			//GD.Print("Next level");
+			GetTree().ChangeSceneToFile("res://level2.tscn");
 		}
 	}
 }
