@@ -126,7 +126,6 @@ script = ExtResource("1_qn1rc")
 speed = 300
 
 [node name="PlayerSprite" type="Sprite2D" parent="Player"]
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_ots34")
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="Player"]
