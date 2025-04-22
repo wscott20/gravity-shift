@@ -1,21 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctx8b3l8wf6xp"]
+[gd_scene load_steps=9 format=3 uid="uid://ctx8b3l8wf6xp"]
 
 [ext_resource type="Texture2D" uid="uid://iclxdqmehosq" path="res://portal.png" id="1_8tjg6"]
 [ext_resource type="Texture2D" uid="uid://cx6s1wl6pwau8" path="res://sprite.png" id="1_ots34"]
 [ext_resource type="Script" uid="uid://cn737t8ghixim" path="res://Player.cs" id="1_qn1rc"]
 [ext_resource type="Script" uid="uid://5k7kvbe4t1st" path="res://NextLevel.cs" id="1_y5hus"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gor3p"]
-size = Vector2(1024, 50)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2z7hr"]
-size = Vector2(400, 50)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0h2g"]
-size = Vector2(50, 600)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1n0d2"]
 size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tcn8"]
+size = Vector2(150, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6vdu"]
+size = Vector2(50, 150)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qn1rc"]
 
@@ -26,66 +23,8 @@ offset_right = 1024.0
 offset_bottom = 600.0
 color = Color(1, 0.733333, 0.533333, 1)
 
-[node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(0, 550)
-
-[node name="GroundRect" type="ColorRect" parent="Ground"]
-offset_right = 1024.0
-offset_bottom = 50.0
-color = Color(0, 0, 0, 1)
-
-[node name="GroundCollider" type="CollisionShape2D" parent="Ground"]
-position = Vector2(512, 25)
-shape = SubResource("RectangleShape2D_gor3p")
-
-[node name="Ceiling" type="StaticBody2D" parent="."]
-
-[node name="CeilingRect" type="ColorRect" parent="Ceiling"]
-offset_right = 1024.0
-offset_bottom = 50.0
-color = Color(0, 0, 0, 1)
-
-[node name="CeilingCollider" type="CollisionShape2D" parent="Ceiling"]
-position = Vector2(512, 25)
-shape = SubResource("RectangleShape2D_gor3p")
-
-[node name="Platform" type="StaticBody2D" parent="."]
-position = Vector2(624, 150)
-
-[node name="PlatformRect" type="ColorRect" parent="Platform"]
-offset_right = 400.0
-offset_bottom = 50.0
-color = Color(0, 0, 0, 1)
-
-[node name="PlatformCollider" type="CollisionShape2D" parent="Platform"]
-position = Vector2(200, 25)
-shape = SubResource("RectangleShape2D_2z7hr")
-
-[node name="LeftWall" type="StaticBody2D" parent="."]
-
-[node name="LWRect" type="ColorRect" parent="LeftWall"]
-offset_right = 50.0
-offset_bottom = 600.0
-color = Color(0, 0, 0, 1)
-
-[node name="LWCollider" type="CollisionShape2D" parent="LeftWall"]
-position = Vector2(25, 300)
-shape = SubResource("RectangleShape2D_b0h2g")
-
-[node name="RightWall" type="StaticBody2D" parent="."]
-position = Vector2(974, 0)
-
-[node name="RWRect" type="ColorRect" parent="RightWall"]
-offset_right = 50.0
-offset_bottom = 600.0
-color = Color(0, 0, 0, 1)
-
-[node name="RWCollider" type="CollisionShape2D" parent="RightWall"]
-position = Vector2(25, 300)
-shape = SubResource("RectangleShape2D_b0h2g")
-
 [node name="Portal" type="Area2D" parent="."]
-position = Vector2(924, 100)
+position = Vector2(100, 150)
 script = ExtResource("1_y5hus")
 
 [node name="PortalSprite" type="Sprite2D" parent="Portal"]
@@ -95,8 +34,94 @@ texture = ExtResource("1_8tjg6")
 [node name="PortalCollider" type="CollisionShape2D" parent="Portal"]
 shape = SubResource("RectangleShape2D_1n0d2")
 
+[node name="Platform1" type="StaticBody2D" parent="."]
+position = Vector2(50, 500)
+
+[node name="Platform1Collider" type="CollisionShape2D" parent="Platform1"]
+position = Vector2(75, 25)
+shape = SubResource("RectangleShape2D_8tcn8")
+
+[node name="Platform1Rect" type="ColorRect" parent="Platform1"]
+offset_right = 150.0
+offset_bottom = 50.0
+color = Color(0, 0, 0, 1)
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(350, 500)
+
+[node name="Platform2Collider" type="CollisionShape2D" parent="Platform2"]
+position = Vector2(75, 25)
+shape = SubResource("RectangleShape2D_8tcn8")
+
+[node name="Platform2Rect" type="ColorRect" parent="Platform2"]
+offset_right = 150.0
+offset_bottom = 50.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform3" type="StaticBody2D" parent="."]
+position = Vector2(650, 500)
+
+[node name="Platform3Collider" type="CollisionShape2D" parent="Platform3"]
+position = Vector2(75, 25)
+shape = SubResource("RectangleShape2D_8tcn8")
+
+[node name="Platform3Rect" type="ColorRect" parent="Platform3"]
+offset_right = 150.0
+offset_bottom = 50.0
+color = Color(0, 0, 0, 1)
+
+[node name="Platform4" type="StaticBody2D" parent="."]
+position = Vector2(50, 50)
+
+[node name="Platform4Collider" type="CollisionShape2D" parent="Platform4"]
+position = Vector2(75, 25)
+shape = SubResource("RectangleShape2D_8tcn8")
+
+[node name="Platform4Rect" type="ColorRect" parent="Platform4"]
+offset_right = 150.0
+offset_bottom = 50.0
+color = Color(0, 0, 0, 1)
+
+[node name="Platform5" type="StaticBody2D" parent="."]
+position = Vector2(350, 100)
+
+[node name="Platform5Collider" type="CollisionShape2D" parent="Platform5"]
+position = Vector2(75, 25)
+shape = SubResource("RectangleShape2D_8tcn8")
+
+[node name="Platform5Rect" type="ColorRect" parent="Platform5"]
+offset_right = 150.0
+offset_bottom = 50.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Platform6" type="StaticBody2D" parent="."]
+position = Vector2(650, 150)
+
+[node name="Platform6Collider" type="CollisionShape2D" parent="Platform6"]
+position = Vector2(75, 25)
+shape = SubResource("RectangleShape2D_8tcn8")
+
+[node name="Platform6Rect" type="ColorRect" parent="Platform6"]
+offset_right = 150.0
+offset_bottom = 50.0
+color = Color(0, 0, 0, 1)
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(850, 250)
+
+[node name="WallRect" type="ColorRect" parent="Wall"]
+offset_right = 50.0
+offset_bottom = 150.0
+color = Color(0, 0, 0, 1)
+
+[node name="WallCollider" type="CollisionShape2D" parent="Wall"]
+position = Vector2(25, 75)
+shape = SubResource("RectangleShape2D_r6vdu")
+
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(512, 200)
+position = Vector2(100, 400)
 script = ExtResource("1_qn1rc")
 speed = 300
 

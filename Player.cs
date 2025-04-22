@@ -65,6 +65,8 @@ public partial class Player : CharacterBody2D
 		) {
 			Position = startPos;
 			Velocity = Vector2.Zero;
+			gravDir = Vector2.Down;
+			isGrounded = false;
 		}
 		MoveAndSlide();
 	}
