@@ -6,8 +6,10 @@ public partial class Player : CharacterBody2D
 	Vector2 gravDir = Vector2.Down;
 	Sprite2D sprite;
 	bool isGrounded = false;
+	Vector2 startPos;
 	[Export] public int speed = 200;
 	public override void _Ready() {
+		startPos = Position;
 		sprite = GetNode<Sprite2D>("PlayerSprite");
 		GD.Print(DisplayServer.ScreenGetSize(DisplayServer.GetPrimaryScreen()));
 		DisplayServer.WindowSetSize(new(1024,600));
@@ -55,6 +57,15 @@ public partial class Player : CharacterBody2D
 		}
 		vel += gravDir * 20;
 		Velocity = vel;
+		if (
+			Position.Y > 600
+			|| Position.Y < 0
+			|| Position.X > 1024
+			|| Position.X < 0
+		) {
+			Position = startPos;
+			Velocity = Vector2.Zero;
+		}
 		MoveAndSlide();
 	}
 }
