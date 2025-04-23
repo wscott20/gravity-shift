@@ -3,15 +3,14 @@ using System;
 
 public partial class Player : CharacterBody2D
 {
-	Vector2 gravDir = Vector2.Down;
+	public Vector2 gravDir = Vector2.Down;
 	Sprite2D sprite;
-	bool isGrounded = false;
+	public bool isGrounded = false;
 	Vector2 startPos;
 	[Export] public int speed = 200;
 	public override void _Ready() {
 		startPos = Position;
 		sprite = GetNode<Sprite2D>("PlayerSprite");
-		GD.Print(DisplayServer.ScreenGetSize(DisplayServer.GetPrimaryScreen()));
 		DisplayServer.WindowSetSize(new(1024,600));
 	}
 	bool GetKey(Key key) => Input.IsPhysicalKeyPressed(key);
@@ -20,6 +19,8 @@ public partial class Player : CharacterBody2D
 		isGrounded = false;
 		for (int i = 0; i < GetSlideCollisionCount(); i++) {
 			var collider = GetSlideCollision(i);
+			if (collider.GetCollider() is not StaticBody2D)
+				continue;
 			Vector2 norm = collider.GetNormal();
 			gravDir = -norm;
 			isGrounded = true;

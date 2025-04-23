@@ -8,10 +8,15 @@ public partial class NextLevel : Area2D
 		BodyEntered += OnBodyEntered;
 	}
 	void OnBodyEntered(Node node) {
-		if (node is Player) {
+		if (node is Player)
+			CallDeferred(nameof(LoadNextLevel));
+	}
+	void LoadNextLevel() {
+		string nextLevel = $"res://level{level+1}.tscn";
+		if (FileAccess.FileExists(nextLevel)) {
 			level++;
-			GD.Print($"Level {level}");
-			GetTree().ChangeSceneToFile($"res://level{level}.tscn");
+			//GD.Print($"Loading {nextLevel}");
+			GetTree().ChangeSceneToFile(nextLevel);
 		}
 	}
 }
