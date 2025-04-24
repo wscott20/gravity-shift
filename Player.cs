@@ -7,7 +7,7 @@ public partial class Player : CharacterBody2D
 	Sprite2D sprite;
 	public bool isGrounded = false;
 	Vector2 startPos;
-	[Export] public int speed = 200;
+	[Export] public int speed = 300;
 	public override void _Ready() {
 		startPos = Position;
 		sprite = GetNode<Sprite2D>("PlayerSprite");
